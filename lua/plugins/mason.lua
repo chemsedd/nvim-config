@@ -22,6 +22,7 @@ return {
                 "pylint", -- python linter
                 "flake8", -- python linter
                 "eslint_d", -- js linter
+                "pyright",
             },
         }
     end,
