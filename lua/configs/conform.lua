@@ -21,7 +21,13 @@ local options = {
         jsonc = { "prettier" },
         yaml = { "prettier" },
         -- python
-        python = { "ruff_format" },
+        python = function(bufnr)
+            if require("conform").get_formatter_info("ruff_format", bufnr).available then
+                return { "ruff_format" }
+            else
+                return { "isort", "autopep8" }
+            end
+        end,
         -- php = { "intelephense" },
         markdown = { "prettier" },
         ["markdown.mdx"] = { "prettier" },
@@ -29,7 +35,6 @@ local options = {
         handlebars = { "prettier" },
     },
     formatters = {
-        python = { "ruff_format" },
         intelephense = {},
         ["php-cs-fixer"] = {
             command = "php-cs-fixer",
