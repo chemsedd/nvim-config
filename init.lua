@@ -33,26 +33,11 @@ require "options"
 require "nvchad.autocmds"
 
 vim.opt.scrolloff = 0
-vim.api.nvim_set_keymap("v", "<", "<gv", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true, silent = true })
-
 vim.o.foldcolumn = "1" -- '0' is not bad
 vim.o.foldlevel = 199 -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 vim.opt.relativenumber = true -- Shows relative line numbers for other lines
-
--- Spectre config
-vim.keymap.set("n", "<leader>Rr", '<cmd>lua require("spectre").toggle()<CR>', { desc = "Toggle Spectre" })
-vim.keymap.set("n", "<leader>Rc", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
-    desc = "Search and replace current word",
-})
-vim.keymap.set("v", "<leader>Rs", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
-    desc = "Search and replace current selection",
-})
-vim.keymap.set("n", "<leader>Rf", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
-    desc = "Search on current file",
-})
 
 require("ufo").setup {
     provider_selector = function(bufnr, filetype, buftype)
