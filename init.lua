@@ -40,6 +40,7 @@ vim.o.foldcolumn = "1" -- '0' is not bad
 vim.o.foldlevel = 199 -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
+vim.opt.relativenumber = true -- Shows relative line numbers for other lines
 
 -- Spectre config
 vim.keymap.set("n", "<leader>Rr", '<cmd>lua require("spectre").toggle()<CR>', { desc = "Toggle Spectre" })
