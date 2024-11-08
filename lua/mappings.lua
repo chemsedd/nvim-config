@@ -14,7 +14,7 @@ map("n", "<Leader>qq", ":qa<CR>", { desc = "Exit NeoVim" })
 vim.api.nvim_set_keymap("v", "<", "<gv", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true, silent = true })
 
--- Spectre config
+-- Spectre
 map("n", "<leader>Rr", '<cmd>lua require("spectre").toggle()<CR>', { desc = "Toggle Spectre" })
 map("n", "<leader>Rc", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
     desc = "Search and replace current word",
@@ -25,3 +25,10 @@ map("v", "<leader>Rs", '<esc><cmd>lua require("spectre").open_visual()<CR>', {
 map("n", "<leader>Rf", '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
     desc = "Search on current file",
 })
+
+-- GPT Model
+vim.api.nvim_set_keymap("v", "<leader>aa", ":GPTModelsCode<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>a", ":GPTModelsCode<CR>", { noremap = true })
+
+vim.api.nvim_set_keymap("v", "<leader>ac", ":GPTModelsChat<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>ac", ":GPTModelsChat<CR>", { noremap = true })
