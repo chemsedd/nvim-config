@@ -46,4 +46,11 @@ return {
             "rcarriga/nvim-notify",
         },
     },
+
+    {
+        "kevinhwang91/nvim-ufo",
+        dependencies = {
+            "kevinhwang91/promise-async",
+        },
+    },
 }
