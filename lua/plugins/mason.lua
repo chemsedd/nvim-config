@@ -18,7 +18,6 @@ return {
                 "isort", -- python formatter
                 "autopep8", -- python formatter
                 "ruff", -- python formatter
-                "ruff-lsp", -- python formatter
                 "pylint", -- python linter
                 "flake8", -- python linter
                 "eslint_d", -- js linter
