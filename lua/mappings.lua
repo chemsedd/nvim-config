@@ -32,3 +32,10 @@ vim.api.nvim_set_keymap("n", "<leader>a", ":GPTModelsCode<CR>", { noremap = true
 
 vim.api.nvim_set_keymap("v", "<leader>ac", ":GPTModelsChat<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>ac", ":GPTModelsChat<CR>", { noremap = true })
+
+-- tabufline, set Alt+number to switch buffer
+for i = 1, 9, 1 do
+    map("n", string.format("<A-%s>", i), function()
+        vim.api.nvim_set_current_buf(vim.t.bufs[i])
+    end, { noremap = true, silent = true })
+end
