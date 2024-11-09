@@ -38,6 +38,7 @@ vim.o.foldlevel = 199 -- Using ufo provider need a large value, feel free to dec
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 vim.opt.relativenumber = true -- Shows relative line numbers for other lines
+vim.o.cursorlineopt = "both" -- highlight current line
 
 require("ufo").setup {
     provider_selector = function(bufnr, filetype, buftype)
