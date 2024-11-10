@@ -32,14 +32,6 @@ dofile(vim.g.base46_cache .. "statusline")
 require "options"
 require "nvchad.autocmds"
 
-vim.opt.scrolloff = 0
-vim.o.foldcolumn = "1" -- '0' is not bad
-vim.o.foldlevel = 199 -- Using ufo provider need a large value, feel free to decrease the value
-vim.o.foldlevelstart = 99
-vim.o.foldenable = true
-vim.opt.relativenumber = true -- Shows relative line numbers for other lines
-vim.o.cursorlineopt = "both" -- highlight current line
-
 require("ufo").setup {
     provider_selector = function(bufnr, filetype, buftype)
         return { "treesitter", "indent" }
