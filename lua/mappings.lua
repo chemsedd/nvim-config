@@ -14,6 +14,12 @@ map("n", "<Leader>qq", ":qa<CR>", { desc = "Exit NeoVim" })
 vim.api.nvim_set_keymap("v", "<", "<gv", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", ">", ">gv", { noremap = true, silent = true })
 
+-- move lines up/down
+map("n", "<C-k>", ":m .-2<CR>==")
+map("n", "<C-j>", ":m .+1<CR>==")
+map("v", "<C-k>", ":m '<-2<CR>gv=gv")
+map("v", "<C-j>", ":m '>+1<CR>gv=gv")
+
 -- Spectre
 map("n", "<leader>Rr", '<cmd>lua require("spectre").toggle()<CR>', { desc = "Toggle Spectre" })
 map("n", "<leader>Rc", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
