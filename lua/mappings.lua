@@ -32,12 +32,18 @@ map("n", "<leader>Rf", '<cmd>lua require("spectre").open_file_search({select_wor
     desc = "Search on current file",
 })
 
+map("n", "<leader>rn", vim.lsp.buf.rename, { noremap = true, desc = "Rename symbol" })
+
 -- GPT Model
 vim.api.nvim_set_keymap("v", "<leader>aa", ":GPTModelsCode<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>a", ":GPTModelsCode<CR>", { noremap = true })
 
 vim.api.nvim_set_keymap("v", "<leader>ac", ":GPTModelsChat<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>ac", ":GPTModelsChat<CR>", { noremap = true })
+
+-- Noice
+map("n", "<leader>nd", ":NoiceDismiss<CR>", { noremap = true, silent = true, desc = "Dismiss notifications" })
+map("n", "<leader>nh", ":NoiceHistory<CR>", { noremap = true, silent = true, desc = "Notifications history" })
 
 -- tabufline, set Alt+number to switch buffer
 for i = 1, 9, 1 do
