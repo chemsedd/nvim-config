@@ -6,9 +6,9 @@
 local M = {}
 
 M.base46 = {
-    theme = "ayu_dark",
-    transparency = true,
-    theme_toggle = { "ayu_dark", "ayu_light" },
+    theme = "tokyodark",
+    transparency = false,
+    theme_toggle = { "tokyodark", "ayu_light" },
     hl_override = {
         ["@comment"] = { italic = true },
         ["@keyword"] = { bold = true },

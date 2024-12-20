@@ -34,16 +34,22 @@ map("n", "<leader>Rf", '<cmd>lua require("spectre").open_file_search({select_wor
 
 map("n", "<leader>rn", vim.lsp.buf.rename, { noremap = true, desc = "Rename symbol" })
 
--- GPT Model
-vim.api.nvim_set_keymap("v", "<leader>aa", ":GPTModelsCode<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>a", ":GPTModelsCode<CR>", { noremap = true })
-
-vim.api.nvim_set_keymap("v", "<leader>ac", ":GPTModelsChat<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>ac", ":GPTModelsChat<CR>", { noremap = true })
-
 -- Noice
 map("n", "<leader>nd", ":NoiceDismiss<CR>", { noremap = true, silent = true, desc = "Dismiss notifications" })
 map("n", "<leader>nh", ":NoiceHistory<CR>", { noremap = true, silent = true, desc = "Notifications history" })
+
+-- Git
+map("n", "<leader>gb", ":Gitsigns blame<CR>", { noremap = true, silent = true, desc = "Git blame file" })
+map("n", "<leader>gn", ":Gitsigns next_hunk<CR>", { noremap = true, silent = true, desc = "Git blame file" })
+map("n", "<leader>gp", ":Gitsigns prev_hunk<CR>", { noremap = true, silent = true, desc = "Git blame file" })
+
+-- Telescope
+map(
+    "n",
+    "<leader>fs",
+    ":Telescope lsp_document_symbols<CR>",
+    { noremap = true, silent = true, desc = "Git blame file" }
+)
 
 -- tabufline, set Alt+number to switch buffer
 for i = 1, 9, 1 do

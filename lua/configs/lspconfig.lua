@@ -30,9 +30,8 @@ if require("conform").get_formatter_info("ruff_format").available then
         on_init = nvlsp.on_init,
         capabilities = nvlsp.capabilities,
     }
-
+else
     -- pyright config
-
     lspconfig.pyright.setup {
         on_attach = nvlsp.on_attach,
         on_init = nvlsp.on_init,

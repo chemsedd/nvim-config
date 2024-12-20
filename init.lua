@@ -41,3 +41,7 @@ require("ufo").setup {
 vim.schedule(function()
     require "mappings"
 end)
+
+require("notify").setup {
+    background_colour = "#000000",
+}
