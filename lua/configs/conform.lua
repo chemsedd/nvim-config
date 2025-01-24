@@ -19,15 +19,16 @@ local options = {
         less = { "prettier" },
         json = { "prettier" },
         jsonc = { "prettier" },
-        yaml = { "prettier" },
+        python = { "black", "isort" },
+        -- yaml = { "yamlfmt" },
         -- python
-        python = function(bufnr)
-            if require("conform").get_formatter_info("ruff_format", bufnr).available then
-                return { "ruff_format" }
-            else
-                return { "isort", "autopep8" }
-            end
-        end,
+        -- python = function(bufnr)
+        --     if require("conform").get_formatter_info("ruff_format", bufnr).available then
+        --         return { "ruff_format" }
+        --     else
+        --         return { "isort", "autopep8" }
+        --     end
+        -- end,
         -- php = { "intelephense" },
         markdown = { "prettier" },
         ["markdown.mdx"] = { "prettier" },
@@ -49,9 +50,9 @@ local options = {
         },
         ["pretty-php"] = {
             args = {
-                "-t",
-                -- "2",
-                -- "--tab 2",
+                -- "-t",
+                -- "4",
+                -- "--tab 4",
                 "$FILENAME",
             },
         },
