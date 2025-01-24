@@ -15,8 +15,8 @@ return {
             ensure_installed = {
                 "prettier", -- prettier formatter
                 -- python
+                -- "ruff",
                 "black",
-                "blackd-client",
                 "isort", -- python formatter
                 "pyright",
                 "stylua", -- lua formatter

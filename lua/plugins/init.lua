@@ -23,11 +23,39 @@ return {
                 "vimdoc",
                 "html",
                 "css",
+                "htmldjango",
                 "python",
                 "ruby",
                 "bash",
             },
         },
+    },
+
+    -- telescope
+    {
+        "nvim-telescope/telescope.nvim",
+        opts = function(_, opts)
+            opts.pickers = {
+                find_files = {
+                    hidden = true,
+                    no_ignore = true,
+                    file_ignore_patterns = {
+                        "node_modules",
+                        "%.git/",
+                        "%.DS_Store",
+                        "dist",
+                        "build",
+                        "%.pdf",
+                        "%.class",
+                        "target/",
+                        "%.lock",
+                        ".venv",
+                        "venv",
+                    },
+                },
+            }
+            return opts
+        end,
     },
 
     -- lazy.nvim

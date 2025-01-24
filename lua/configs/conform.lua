@@ -4,6 +4,7 @@ local options = {
         -- These options will be passed to conform.format()
         timeout_ms = 7000,
         lsp_fallback = true,
+        async = false,
     },
 
     formatters_by_ft = {
@@ -19,16 +20,15 @@ local options = {
         less = { "prettier" },
         json = { "prettier" },
         jsonc = { "prettier" },
-        python = { "black", "isort" },
+        -- python = { "ruff" },
         -- yaml = { "yamlfmt" },
-        -- python
-        -- python = function(bufnr)
-        --     if require("conform").get_formatter_info("ruff_format", bufnr).available then
-        --         return { "ruff_format" }
-        --     else
-        --         return { "isort", "autopep8" }
-        --     end
-        -- end,
+        python = function(bufnr)
+            if require("conform").get_formatter_info("ruff", bufnr).available then
+                return { "ruff_format" }
+            else
+                return { "isort", "black" }
+            end
+        end,
         -- php = { "intelephense" },
         markdown = { "prettier" },
         ["markdown.mdx"] = { "prettier" },
@@ -58,6 +58,15 @@ local options = {
         },
         ["html-lsp"] = {
             command = "html-lsp",
+        },
+
+        ["black"] = {
+            command = "black",
+            args = {
+                "-l",
+                "100",
+                "-",
+            },
         },
     },
     notify_on_error = true,
