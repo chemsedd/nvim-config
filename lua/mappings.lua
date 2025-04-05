@@ -50,6 +50,21 @@ map(
     ":Telescope lsp_document_symbols<CR>",
     { noremap = true, silent = true, desc = "Git blame file" }
 )
+map("n", "<leader>ff", function()
+    require("telescope.builtin").find_files {
+        no_ignore = true,
+        hidden = true,
+    }
+end)
+
+local conform = require "conform"
+map({ "n", "v" }, "<leader>fr", function()
+    conform.format {
+        lsp_fallback = true,
+        async = false,
+        timeout_ms = 500,
+    }
+end, { desc = "Format file or range (in visual mode)" })
 
 -- tabufline, set Alt+number to switch buffer
 for i = 1, 9, 1 do

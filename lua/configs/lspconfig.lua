@@ -31,20 +31,28 @@ end
 --         capabilities = nvlsp.capabilities,
 --     }
 
-if require("conform").get_formatter_info("black").available then
-    local black_on_attach = function(client, bufnr)
-        if client.name == "blackd-client" then
-            -- Disable hover in favor of Pyright
-            client.server_capabilities.hoverProvider = false
-        end
-    end
-
-    lspconfig.black.setup {
-        on_attach = black_on_attach,
-        on_init = nvlsp.on_init,
-        capabilities = nvlsp.capabilities,
-    }
+local formatter = nil
+if require("conform").get_formatter_info("ruff").available then
+    formatter = "ruff"
+elseif require("conform").get_formatter_info("black").available then
+    formatter = "black"
+else
+    formatter = "autopep8"
 end
+
+local on_attach = function(client, bufnr)
+    if client.name == formatter then
+        -- Disable hover in favor of Pyright
+        client.server_capabilities.hoverProvider = false
+    end
+end
+
+lspconfig[formatter].setup {
+    on_attach = on_attach,
+    on_init = nvlsp.on_init,
+    capabilities = nvlsp.capabilities,
+}
+
 -- else
 -- pyright config
 lspconfig.pyright.setup {
