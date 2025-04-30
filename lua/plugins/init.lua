@@ -23,6 +23,7 @@ return {
                 "vimdoc",
                 "html",
                 "css",
+                "scss",
                 "htmldjango",
                 "python",
                 "ruby",

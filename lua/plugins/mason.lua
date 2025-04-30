@@ -14,16 +14,19 @@ return {
         mason_tool_installer.setup {
             ensure_installed = {
                 "prettier", -- prettier formatter
+
                 -- python
-                -- "ruff",
-                "black",
-                "isort", -- python formatter
+                "ruff",
+                -- "black",
+                -- "isort",
+                -- "autopep8",
+                -- "pylint",
+                -- "flake8",
                 "pyright",
+
                 "stylua", -- lua formatter
-                -- "autopep8", -- python formatter
-                -- "pylint", -- python linter
-                -- "flake8", -- python linter
                 "eslint_d", -- js linter
+                "cssls",
             },
         }
     end,
