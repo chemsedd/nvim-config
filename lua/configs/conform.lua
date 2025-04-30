@@ -20,16 +20,9 @@ local options = {
         less = { "prettier" },
         json = { "prettier" },
         jsonc = { "prettier" },
-        -- python = { "ruff" },
-        -- yaml = { "yamlfmt" },
-        python = function(bufnr)
-            if require("conform").get_formatter_info("ruff", bufnr).available then
-                return { "ruff_format" }
-            else
-                return { "isort", "black" }
-            end
-        end,
-        -- php = { "intelephense" },
+        -- python = { "ruff", "ruff_format" },
+        python = { "black", "isort" },
+        php = { "intelephense" },
         markdown = { "prettier" },
         ["markdown.mdx"] = { "prettier" },
         graphql = { "prettier" },

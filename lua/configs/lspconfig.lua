@@ -16,22 +16,9 @@ for _, lsp in ipairs(servers) do
     }
 end
 
--- ruff config
--- if require("conform").get_formatter_info("ruff_format").available then
---     local ruff_on_attach = function(client, bufnr)
---         if client.name == "ruff" then
---             -- Disable hover in favor of Pyright
---             client.server_capabilities.hoverProvider = false
---         end
---     end
---
---     lspconfig.ruff.setup {
---         on_attach = ruff_on_attach,
---         on_init = nvlsp.on_init,
---         capabilities = nvlsp.capabilities,
---     }
-
+-- Python config
 local formatter = nil
+
 if require("conform").get_formatter_info("ruff").available then
     formatter = "ruff"
 elseif require("conform").get_formatter_info("black").available then
@@ -53,8 +40,6 @@ lspconfig[formatter].setup {
     capabilities = nvlsp.capabilities,
 }
 
--- else
--- pyright config
 lspconfig.pyright.setup {
     on_attach = nvlsp.on_attach,
     on_init = nvlsp.on_init,
@@ -72,4 +57,12 @@ lspconfig.pyright.setup {
         },
     },
 }
--- end
+
+-- Code breadcrumb
+local navic = require "nvim-navic"
+
+lspconfig.clangd.setup {
+    on_attach = function(client, bufnr)
+        navic.attach(client, bufnr)
+    end,
+}
