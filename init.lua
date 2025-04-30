@@ -45,3 +45,7 @@ end)
 require("notify").setup {
     background_colour = "#000000",
 }
+
+-- extend snippets mappings
+local luasnip = require "luasnip"
+luasnip.filetype_extend("htmldjango", { "html", "css", "tailwindcss" })
