@@ -49,3 +49,18 @@ require("notify").setup {
 -- extend snippets mappings
 local luasnip = require "luasnip"
 luasnip.filetype_extend("htmldjango", { "html", "css", "tailwindcss" })
+luasnip.filetype_extend("scss", { "css", "tailwindcss" })
+
+require("lspconfig").jsonls.setup {
+    filetypes = { "json", "jsonl" },
+    init_options = {
+        provideFormatter = true,
+    },
+    commands = {
+        Format = {
+            function()
+                vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line "$", 0 })
+            end,
+        },
+    },
+}

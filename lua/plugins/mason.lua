@@ -27,6 +27,7 @@ return {
                 "stylua", -- lua formatter
                 "eslint_d", -- js linter
                 "cssls",
+                "tailwindcss-language-server",
             },
         }
     end,
