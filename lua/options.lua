@@ -44,3 +44,13 @@ api.nvim_set_hl(0, "NavicIconsOperator", { default = true, bg = "#1e1e1e", fg = 
 api.nvim_set_hl(0, "NavicIconsTypeParameter", { default = true, bg = "#1e1e1e", fg = "#8e44ad" })
 api.nvim_set_hl(0, "NavicText", { default = true, bg = "#1e1e1e", fg = "#ffffff" })
 api.nvim_set_hl(0, "NavicSeparator", { default = true, bg = "#1e1e1e", fg = "#bdc3c7" })
+
+-- Show dashboard when all buffers are closed
+api.nvim_create_autocmd("BufDelete", {
+    callback = function()
+        local bufs = vim.t.bufs
+        if #bufs == 1 and vim.api.nvim_buf_get_name(bufs[1]) == "" then
+            vim.cmd "Dashboard"
+        end
+    end,
+})

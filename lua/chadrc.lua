@@ -6,9 +6,9 @@
 local M = {}
 
 M.base46 = {
-    theme = "tomorrow_night",
+    theme = "everblush",
     transparency = false,
-    theme_toggle = { "tomorrow_night", "ayu_light" },
+    theme_toggle = { "everblush", "ayu_light" },
     hl_override = {
         ["@comment"] = { italic = true },
         ["@keyword"] = { bold = true },
@@ -24,8 +24,19 @@ M.ui = {
     },
 
     nvdash = {
-        load_on_startup = true,
+        load_on_startup = false,
     },
+
+    cmp = {
+        icons_left = false, -- only for non-atom styles!
+        style = "atom_colored", -- default/flat_light/flat_dark/atom/atom_colored
+        -- for tailwind, css lsp etc
+        format_colors = { lsp = true, icon = "󱓻" },
+    },
+}
+
+M.lsp = {
+    signature = false,
 }
 
 return M
