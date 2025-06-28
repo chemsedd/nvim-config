@@ -39,9 +39,21 @@ map("n", "<leader>nd", ":NoiceDismiss<CR>", { noremap = true, silent = true, des
 map("n", "<leader>nh", ":NoiceHistory<CR>", { noremap = true, silent = true, desc = "Notifications history" })
 
 -- Git
-map("n", "<leader>gb", ":Gitsigns blame<CR>", { noremap = true, silent = true, desc = "Git blame file" })
-map("n", "<leader>gn", ":Gitsigns next_hunk<CR>", { noremap = true, silent = true, desc = "Git blame file" })
-map("n", "<leader>gp", ":Gitsigns prev_hunk<CR>", { noremap = true, silent = true, desc = "Git blame file" })
+map(
+    "n",
+    "<leader>gb",
+    ":Gitsigns toggle_current_line_blame<CR>",
+    { noremap = true, silent = true, desc = "Git line blame" }
+)
+map("n", "<leader>gB", ":Gitsigns blame<CR>", { noremap = true, silent = true, desc = "Git file blame" })
+map("n", "<leader>gn", ":Gitsigns next_hunk<CR>", { noremap = true, silent = true, desc = "Git next hunk" })
+map("n", "<leader>gp", ":Gitsigns prev_hunk<CR>", { noremap = true, silent = true, desc = "Git previous hunk" })
+map("n", "<leader>gd", ":Gitsigns toggle_deleted<CR>", { noremap = true, silent = true, desc = "Git toggle deleted" })
+
+-- Tiny code actions
+map("n", "<leader>ca", function()
+    require("tiny-code-action").code_action()
+end, { noremap = true, silent = true })
 
 -- Telescope
 map(

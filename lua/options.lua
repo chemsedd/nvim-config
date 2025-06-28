@@ -2,6 +2,7 @@ require "nvchad.options"
 
 local o = vim.o
 local api = vim.api
+local opt = vim.opt
 
 -- folding options
 o.foldcolumn = "0" -- '0' is not bad
@@ -11,8 +12,11 @@ o.foldenable = true
 
 -- editor
 o.cursorlineopt = "both" -- to enable cursorline!
-vim.opt.relativenumber = false -- Shows relative line numbers for other lines
-vim.opt.clipboard:append "unnamedplus" -- Add unnamedplus to clipboard options
+opt.relativenumber = false -- Shows relative line numbers for other lines
+opt.clipboard:append "unnamedplus" -- Add unnamedplus to clipboard options
+
+-- Disable dimming inactive panes
+opt.winhighlight = "Normal:MyNormal,NormalNC:MyNormalNC"
 
 -- navic breadcrumb config
 o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
@@ -54,3 +58,7 @@ api.nvim_create_autocmd("BufDelete", {
         end
     end,
 })
+
+if vim.g.neovide then
+    vim.o.guifont = "Fira Code:h13" -- text below applies for VimScript
+end
