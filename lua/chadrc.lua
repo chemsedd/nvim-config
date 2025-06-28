@@ -6,9 +6,9 @@
 local M = {}
 
 M.base46 = {
-    theme = "everblush",
+    theme = "gruvchad",
     transparency = false,
-    theme_toggle = { "everblush", "ayu_light" },
+    theme_toggle = { "gruvchad", "ayu_light" },
     hl_override = {
         ["@comment"] = { italic = true },
         ["@keyword"] = { bold = true },

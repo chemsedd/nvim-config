@@ -9,6 +9,7 @@ return {
     {
         "neovim/nvim-lspconfig",
         config = function()
+            ---@diagnostic disable-next-line: different-requires
             require "configs.lspconfig"
         end,
     },
@@ -73,13 +74,6 @@ return {
             --   `nvim-notify` is only needed, if you want to use the notification view.
             --   If not available, we use `mini` as the fallback
             "rcarriga/nvim-notify",
-        },
-    },
-
-    {
-        "kevinhwang91/nvim-ufo",
-        dependencies = {
-            "kevinhwang91/promise-async",
         },
     },
 }
